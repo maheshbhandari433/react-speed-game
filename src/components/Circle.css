@@ -1,3 +1,7 @@
+p {
+  color: white;
+}
+
 .circle {
     background-color: #191f25;
     width: 120px;
@@ -10,16 +14,16 @@
   }
   
   .circle:nth-child(1) {
-    background-color: rgb(242, 164, 46);
+    background-color: rgb(243, 149, 8);
   }
   .circle:nth-child(2) {
-    background-color: rgb(242, 164, 46);
+    background-color: rgb(184, 75, 7);
   }
   .circle:nth-child(3) {
-    background-color: rgb(242, 164, 46);
+    background-color: rgb(191, 105, 35);
   }
   .circle:nth-child(4) {
-    background-color: rgb(242, 164, 46);
+    background-color: rgb(231, 125, 121);
   }
   
   .active {
