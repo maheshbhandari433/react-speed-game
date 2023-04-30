@@ -1,4 +1,4 @@
-# Speed game using React
+## Speed game using React
 
 Speed game refactored with React.
 
