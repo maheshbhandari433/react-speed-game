@@ -123,16 +123,12 @@ class App extends Component {
         <h1>{this.state.title}</h1>
         <p>Score: {this.state.score}</p>
         <div className="game-wrapper">{circlesList}</div>
-        <button
-          className={!this.state.gameStart ? "" : "hidden"}
-          onClick={this.startHandler}
-        >
+        <button className={!this.state.gameStart ? "" : "hidden"}
+                onClick={this.startHandler}>
           Start
         </button>
-        <button
-          className={!this.state.gameStart ? "hidden" : ""}
-          onClick={this.endHandler}
-        >
+        <button className={!this.state.gameStart ? "hidden" : ""}
+                onClick={this.endHandler}>
           End
         </button>
         {this.state.showGameOver && (
