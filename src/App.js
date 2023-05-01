@@ -26,7 +26,7 @@ class App extends Component {
   };
 
   clickHandler = (circle) => {
-  console.log(this.state.pace)
+  
     if (circle.id === this.state.current) {
       this.setState((prevState) => ({
         score: prevState.score + 10,
@@ -44,12 +44,17 @@ class App extends Component {
   };
 
   pickNew = () => {
+    this.setState({
+      pace: this.state.pace-100
+    })
     let nextActive;
     do {
       nextActive = this.randomIntegerNum(1, this.state.circles.length);
       if (this.state.rounds === 5) {
         this.endHandler();
       }
+      console.log(nextActive)
+      console.log(this.state.pace)
     } while (nextActive === this.state.current);
     this.setState({
       current: nextActive,
@@ -59,12 +64,13 @@ class App extends Component {
   };
 
   startHandler = () => {
+    
     this.startSound.play()
     this.setState({
       gameStart: true,
       timer: setInterval(this.pickNew, this.state.pace)
-    })
-  };
+    });
+  }
 
   endHandler = () => {
     this.endSound.play()
@@ -82,6 +88,20 @@ class App extends Component {
       current: 0,
       rounds: 0,
     });
+  };
+
+  messageHandler = (score) => {
+    let result = "";
+    if (score === 0) {
+      result = "Please try again 🤨";
+    } else if (score <= 150) {
+      result = "Nice try.";
+    } else if (score <= 400) {
+      result = "Nicely played.";
+    } else {
+      result = "Well done. Great score.";
+    }
+    return result;
   };
 
   render() {
@@ -116,7 +136,9 @@ class App extends Component {
           End
         </button>
         {this.state.showGameOver && (
-          <Modal score={this.state.score} click={this.modalHandler} />
+          <Modal score={this.state.score}
+          click={this.modalHandler}
+          message={this.messageHandler(this.state.score)} />
         )}
       </div>
     );
