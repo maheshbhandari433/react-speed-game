@@ -53,14 +53,14 @@ class App extends Component {
       if (this.state.rounds === 5) {
         this.endHandler();
       }
-      console.log(nextActive)
-      console.log(this.state.pace)
+      /* console.log(nextActive)
+      console.log(this.state.pace) */
     } while (nextActive === this.state.current);
+
     this.setState({
       current: nextActive,
       rounds: this.state.rounds + 1,
-    });
-   /* console.log(nextActive) */ 
+    }); 
   };
 
   startHandler = () => {
